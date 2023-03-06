@@ -34,7 +34,9 @@ export class AuthGuard implements CanActivate {
         }
       });
     } else {
-      // this._router.navigate(['/']);
+      console.log('test');
+      
+      this._router.navigate(['/login']);
       return false;
     }
   }
@@ -61,7 +63,9 @@ export class AuthGuard implements CanActivate {
   }
 
   redirectLogin(): void {
-    // localStorage.clear();
-    // this._router.navigate(['login']);
+    if (localStorage.getItem('accessToken')) { 
+      localStorage.clear();
+      this._router.navigate(['login']);
+    }
   }
 }

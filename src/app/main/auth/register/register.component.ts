@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
       country_code: ['+91'],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]],
       confirm_password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]],
-      refer_code: [''],
+      // refer_code: [''],
       fcm_token: [''],
       tandc: [false, [Validators.requiredTrue]],
     }, {

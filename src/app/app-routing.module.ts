@@ -9,7 +9,7 @@ import { OrganizersComponent } from './main/content/organizers/organizers.compon
 
 const routes: Routes = [
 
-  { path: '', redirectTo: '/organizers' },
+  { path: '', redirectTo: 'login' },
   {
     path: '',
     canActivate: [NoAuthGuard],
@@ -52,7 +52,7 @@ const routes: Routes = [
       }
     ]
   },
-  { path: '**', redirectTo: '/events' },
+  { path: '**', redirectTo: '/organizers' },
 ];
 // , { useHash: true }
 @NgModule({

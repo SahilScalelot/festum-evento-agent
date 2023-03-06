@@ -15,15 +15,15 @@ export class ProfileService {
   }
 
   updateProfilePic(profilePicObj: any, isBusinessProfile: boolean = false): any {
-    return this.http.post(environment.appURL + 'organizer/profile/' + (isBusinessProfile ? 'businessprofilepic' : 'profilepic'), profilePicObj, this._globalFunctions.getFileAuthorizationHeader());
+    return this.http.post(environment.appURL + 'agent/profile/' + (isBusinessProfile ? 'businessprofilepic' : 'profilepic'), profilePicObj, this._globalFunctions.getFileAuthorizationHeader());
   }
 
   updateProfile(profileObj: any): any {
-    return this.http.post(environment.appURL + 'organizer/profile', profileObj, this._globalFunctions.getAuthorizationHeader());
+    return this.http.post(environment.appURL + 'agent/profile', profileObj, this._globalFunctions.getAuthorizationHeader());
   }
 
   updateBusiness(businessProfileObj: any): any {
-    return this.http.post(environment.appURL + 'organizer/profile/businessprofile', businessProfileObj, this._globalFunctions.getAuthorizationHeader());
+    return this.http.post(environment.appURL + 'agent/profile/businessprofile', businessProfileObj, this._globalFunctions.getAuthorizationHeader());
   }
 
 }

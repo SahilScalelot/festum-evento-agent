@@ -12,6 +12,7 @@ import { ImageModule } from 'primeng/image';
 import { TranslateModule } from "@ngx-translate/core";
 import { ProgressBarModule } from "primeng/progressbar";
 import { MatExpansionModule } from '@angular/material/expansion';
+import { TableModule } from 'primeng/table';
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
     CheckboxModule,
     PaginatorModule,
     ImageModule,
+    TableModule,
     MatExpansionModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDLgr8YB5IK8dBIEWClexZGzXaB7UlVm7Q',

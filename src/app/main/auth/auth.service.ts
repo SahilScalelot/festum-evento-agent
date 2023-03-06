@@ -15,26 +15,26 @@ export class AuthService {
   ) { }
 
   getLoginUser(): Observable<any> {
-    return this._httpClient.get(CONSTANTS.appUrl + 'organizer/profile', this._globalFunctions.getAuthorizationHeader());
+    return this._httpClient.get(CONSTANTS.appUrl + 'agent/profile', this._globalFunctions.getAuthorizationHeader());
   }
 
   logIn(credentials: any): Observable<any> {
-    return this._httpClient.post(CONSTANTS.appUrl + 'organizer/login', credentials, this._globalFunctions.getHeader());
+    return this._httpClient.post(CONSTANTS.appUrl + 'agent/login', credentials, this._globalFunctions.getHeader());
   }
 
   register(credentials: any): Observable<any> {
-    return this._httpClient.post(CONSTANTS.appUrl + 'organizer/register', credentials, this._globalFunctions.getHeader());
+    return this._httpClient.post(CONSTANTS.appUrl + 'agent/register', credentials, this._globalFunctions.getHeader());
   }
 
   sendOTP(mobileObj: any, isForgotPwd: boolean = false): Observable<any> {
-    return this._httpClient.post(CONSTANTS.appUrl + 'organizer/register' + (isForgotPwd ? '/forgotpassword' : ''), mobileObj, this._globalFunctions.getHeader());
+    return this._httpClient.post(CONSTANTS.appUrl + 'agent/register' + (isForgotPwd ? '/forgotpassword' : ''), mobileObj, this._globalFunctions.getHeader());
   }
 
   verifyCode(verifyOTP: any): Observable<any> {
-    return this._httpClient.post(CONSTANTS.appUrl + 'organizer/register/verifyotp', verifyOTP, this._globalFunctions.getHeader());
+    return this._httpClient.post(CONSTANTS.appUrl + 'agent/register/verifyotp', verifyOTP, this._globalFunctions.getHeader());
   }
 
   changePassword(newPassword: any): Observable<any> {
-    return this._httpClient.post(CONSTANTS.appUrl + 'organizer/register/changepassword', newPassword, this._globalFunctions.getHeader());
+    return this._httpClient.post(CONSTANTS.appUrl + 'agent/register/changepassword', newPassword, this._globalFunctions.getHeader());
   }
 }

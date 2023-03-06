@@ -14,28 +14,28 @@ export class OrganizersService {
   //   return this.http.get(environment.appURL + 'events/' + '?limit='+ limit +'&page=' + page, this._globalFunctions.getAuthorizationHeader());
   // }
   
-  eventsList(filter: any = {}): any {
-    return this.http.post(environment.appURL + 'organizer/events/list', filter, this._globalFunctions.getFileAuthorizationHeader());
+  organizersList(filter: any = {}): any {
+    return this.http.post(environment.appURL + 'agent/organisers', filter, this._globalFunctions.getFileAuthorizationHeader());
   }
   
   getSingleEvents(eventId: any = ''): any {
-    return this.http.get(environment.appURL + 'organizer/events/getone?eventid=' + eventId, this._globalFunctions.getAuthorizationHeader());
+    return this.http.get(environment.appURL + 'agent/events/getone?eventid=' + eventId, this._globalFunctions.getAuthorizationHeader());
   }
 
   liveEventById(eventId: any = ''): any {
-    return this.http.post(environment.appURL + 'organizer/events/liveone', {eventid: eventId}, this._globalFunctions.getAuthorizationHeader());
+    return this.http.post(environment.appURL + 'agent/events/liveone', {eventid: eventId}, this._globalFunctions.getAuthorizationHeader());
   }
 
   liveMultipleEvents(eventIds: any = []): any {
-    return this.http.post(environment.appURL + 'organizer/events/livemulti', {eventids: eventIds}, this._globalFunctions.getAuthorizationHeader());
+    return this.http.post(environment.appURL + 'agent/events/livemulti', {eventids: eventIds}, this._globalFunctions.getAuthorizationHeader());
   }
 
   getAttendeesByEventId(eventIdObj: any = {}): any {
-    return this.http.post(environment.appURL + 'organizer/eventattendees', eventIdObj, this._globalFunctions.getAuthorizationHeader());
+    return this.http.post(environment.appURL + 'agent/eventattendees', eventIdObj, this._globalFunctions.getAuthorizationHeader());
   }
 
   exportAttendees(eventIdObj: any = {}): any {
-    return this.http.post(environment.appURL + 'organizer/eventattendees/export', eventIdObj, this._globalFunctions.getAuthorizationHeader());
+    return this.http.post(environment.appURL + 'agent/eventattendees/export', eventIdObj, this._globalFunctions.getAuthorizationHeader());
   }
 
   // retrieveUser(): any {

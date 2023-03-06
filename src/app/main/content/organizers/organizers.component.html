@@ -1,16 +1,60 @@
-<p-progressSpinner *ngIf="isLoading" [style]="{width: '50px', height: '50px'}" animationDuration=".5s" strokeWidth="8" class="absolute bg-white bg-opacity-25 backdrop-blur-sm inset-x-0 top-0 h-full w-full z-40" styleClass="custom-spinner absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></p-progressSpinner>
+<p-progressSpinner *ngIf="isLoading" [style]="{width: '50px', height: '50px'}" animationDuration=".5s" strokeWidth="8"
+  class="absolute bg-white bg-opacity-25 backdrop-blur-sm inset-x-0 top-0 h-full w-full z-40"
+  styleClass="custom-spinner absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></p-progressSpinner>
 <div class="wrapper">
   <div class="flex flex-wrap items-center">
     <h2>Organizers</h2>
     <div class="flex whitespace-nowrap space-x-5 ml-auto">
-      <span class="secondary cursor-pointer px-7 py-3" (click)="addOrganizer()"><i class="icon-plus mr-3"></i>Add Organizer</span>
+      <span class="secondary cursor-pointer px-7 py-3" (click)="addOrganizer()"><i class="icon-plus mr-3"></i>Add
+        Organizer</span>
     </div>
   </div>
-  
+
   <div class="space-y-5 pt-10">
-    
+
     <div class="space-y-5" *ngIf="!isLoading">
-      
+      <p-table [value]="organizers">
+        <ng-template pTemplate="header">
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Address</th>
+                <th>Mobile Verified</th>
+                <th>Is Approved</th>
+                <th>Status</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-organizer>
+            <tr>
+                <td>
+                  <div><img [src]="!!(organizer?.profile_pic) ? constants.baseImageURL + organizer.profile_pic : constants.defaultImage" alt="{{organizer?.name}}" class="w-7 h-7 rounded-full overflow-hidden object-cover"/></div>
+                </td>
+                <td>{{organizer?.name}}</td>
+                <td>{{organizer?.email}}</td>
+                <td>{{organizer?.country_code + ' ' + organizer?.mobile}}</td>
+                <td>
+                  {{organizer?.city + ', '}}
+                  {{organizer?.state + ', '}}
+                  {{organizer?.country + ', '}}
+                  {{organizer?.pincode}}
+                </td>
+                <td class="text-center">
+                  <i class="icon-right text-green-500 mx-auto" *ngIf="organizer?.mobileverified"></i>
+                  <i class="icon-close text-red-500 mx-auto" *ngIf="!organizer?.mobileverified"></i>
+                </td>
+                <td class="text-center">
+                  <i class="icon-right text-green-500 mx-auto" *ngIf="organizer?.is_approved"></i>
+                  <i class="icon-close text-red-500 mx-auto" *ngIf="!organizer?.is_approved"></i>
+                </td>
+                <td class="text-center">
+                  <i class="icon-right text-green-500 mx-auto" *ngIf="organizer?.status"></i>
+                  <i class="icon-close text-red-500 mx-auto" *ngIf="!organizer?.status"></i>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
     </div>
 
   </div>

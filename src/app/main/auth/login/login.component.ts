@@ -70,8 +70,9 @@ export class LoginComponent implements OnInit {
     this._authService.logIn(this.logInForm.value).subscribe((result: any) => {
       if (result && result.IsSuccess) {
         localStorage.setItem('accessToken', result.Data.token);
+        // localStorage.setItem('agentid', result.Data.agentid);
         this._sNotify.success('Logged in Successfully!', 'Success');
-        this._router.navigate(['events']);
+        this._router.navigate(['organizers']);
       } else {
         this.logInForm.enable();
         this._globalFunctions.successErrorHandling(result, this, true);
