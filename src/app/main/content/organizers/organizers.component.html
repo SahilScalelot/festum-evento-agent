@@ -1,0 +1,17 @@
+<p-progressSpinner *ngIf="isLoading" [style]="{width: '50px', height: '50px'}" animationDuration=".5s" strokeWidth="8" class="absolute bg-white bg-opacity-25 backdrop-blur-sm inset-x-0 top-0 h-full w-full z-40" styleClass="custom-spinner absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></p-progressSpinner>
+<div class="wrapper">
+  <div class="flex flex-wrap items-center">
+    <h2>Organizers</h2>
+    <div class="flex whitespace-nowrap space-x-5 ml-auto">
+      <span class="secondary cursor-pointer px-7 py-3" (click)="addOrganizer()"><i class="icon-plus mr-3"></i>Add Organizer</span>
+    </div>
+  </div>
+  
+  <div class="space-y-5 pt-10">
+    
+    <div class="space-y-5" *ngIf="!isLoading">
+      
+    </div>
+
+  </div>
+</div>
