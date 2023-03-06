@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "festum-evento": {
+    "festum-evento-agent": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/festum-evento",
+            "outputPath": "dist/festum-evento-agent",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -90,10 +90,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "festum-evento:build:production"
+              "browserTarget": "festum-evento-agent:build:production"
             },
             "development": {
-              "browserTarget": "festum-evento:build:development"
+              "browserTarget": "festum-evento-agent:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -101,7 +101,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "festum-evento:build"
+            "browserTarget": "festum-evento-agent:build"
           }
         },
         "test": {
