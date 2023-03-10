@@ -12,10 +12,10 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
 
     animations: [
         trigger('fade', [
-            state('out', style({                
+            state('out', style({
                 transform: 'scale3d(0.9, 0.9, 0.9)'
             })),          
-            state('in', style({                
+            state('in', style({
                 transform: 'scale3d(1, 1, 1)'
             })),
             transition('*=>*', [animate('0.2s')]),
@@ -28,6 +28,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     @Input() maxWidth: any;
     @Input() isCloseHidden: boolean = false;
     @Input() isTitleHidden: boolean = false;
+    @Input() stickyTop: boolean = false;
     // @Input() title: string;
     @Input() class: any;
     // @Input() class: string;
