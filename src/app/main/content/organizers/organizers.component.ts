@@ -79,8 +79,8 @@ export class OrganizersComponent implements OnInit {
   }
 
   addOrganizer(): void {
-    // window.open('http://festumevento.com/#/register/' + this.agentId, '_blank');
-    window.open('http://localhost:4200/#/register/' + this.agentId, '_blank');
+    window.open('http://festumevento.com/#/register/' + this.agentId, '_blank');
+    // window.open('http://localhost:4200/#/register/' + this.agentId, '_blank');
   }
 
   gotoEventOverview(event: any, eventObj: any): void {
