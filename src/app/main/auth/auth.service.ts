@@ -26,6 +26,10 @@ export class AuthService {
     return this._httpClient.post(CONSTANTS.appUrl + 'agent/register', credentials, this._globalFunctions.getHeader());
   }
 
+  changeNumber(agentid: any): Observable<any> {
+    return this._httpClient.post(CONSTANTS.appUrl + 'agent/register/changenumber', {agentid: agentid}, this._globalFunctions.getHeader());
+  }
+
   sendOTP(mobileObj: any, isForgotPwd: boolean = false): Observable<any> {
     return this._httpClient.post(CONSTANTS.appUrl + 'agent/register' + (isForgotPwd ? '/forgotpassword' : ''), mobileObj, this._globalFunctions.getHeader());
   }

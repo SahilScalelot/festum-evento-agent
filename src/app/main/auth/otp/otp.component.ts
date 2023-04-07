@@ -70,6 +70,23 @@ export class OtpComponent implements OnInit {
   }
 
   onChangeNumberClick(): void {
+    if (this.registerObj && this.registerObj?.agentid) {
+      this.isLoading = true;
+      this._authService.changeNumber(this.registerObj.agentid).subscribe((result: any) => {
+        if (result && result.IsSuccess) {
+          this._sNotify.success(result.Message, 'Success');
+          this.isLoading = false;
+          this._router.navigate(['/register']);
+        } else {
+          // this._sNotify.success(result.Message, 'error');
+          this._globalFunctions.successErrorHandling(result, this, true);
+          this.isLoading = false;
+        }
+      }, (error: any) => {
+        this._globalFunctions.errorHanding(error, this, true);
+        this.isLoading = false;
+      });
+    }
     this._router.navigate([this.isForgotPwdFlow ? '/forgot-password' : '/register']);
   }
 
