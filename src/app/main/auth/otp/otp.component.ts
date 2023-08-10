@@ -18,6 +18,8 @@ export class OtpComponent implements OnInit {
   isLoading: boolean = false;
   phone: any = '';
   smsKey: any = '';
+  login_key:any ='';
+  lkey:any = '';
 
   constructor(
     private _router: Router,
@@ -38,10 +40,13 @@ export class OtpComponent implements OnInit {
       this.registerObj = JSON.parse(localStorage.getItem('register')!);
       this.phone = this.registerObj.mobile;
       this.smsKey = this.registerObj.smsKey;
+    }else if(localStorage.getItem('login_key')){
+      this.login_key = JSON.parse(localStorage.getItem('login_key')!)
+      this.phone = this.login_key.mobile;
+      this.smsKey =  this.login_key.lkey;      
     } else {
       this._router.navigate(['/login']);
     }
-
     this.otp = new FormControl('', [Validators.required, Validators.minLength(6)]);
   }
 

@@ -69,10 +69,22 @@ export class LoginComponent implements OnInit {
     this.logInForm.disable();
     this._authService.logIn(this.logInForm.value).subscribe((result: any) => {
       if (result && result.IsSuccess) {
-        localStorage.setItem('accessToken', result.Data.token);
-        // localStorage.setItem('agentid', result.Data.agentid);
-        this._sNotify.success('Logged in Successfully!', 'Success');
-        this._router.navigate(['organizers']);
+        if (result.Data.token) {
+          console.log(result);
+          console.log(result.Data.token);
+          localStorage.setItem('accessToken', result.Data.token);
+          // localStorage.setItem('agentid', result.Data.agentid);
+          this._sNotify.success('Logged in Successfully!', 'Success');
+          this._router.navigate(['organizers']);
+        }else if(result.Data.key){
+          const resultobj: any =this.logInForm.value;
+          resultobj.lkey = result.Data.key;
+          localStorage.setItem("login_key", JSON.stringify(resultobj));
+          this._router.navigate(['/otp']);
+        }else{
+          this.logInForm.enable();
+          this._globalFunctions.successErrorHandling(result, this, true);
+        }
       } else {
         this.logInForm.enable();
         this._globalFunctions.successErrorHandling(result, this, true);

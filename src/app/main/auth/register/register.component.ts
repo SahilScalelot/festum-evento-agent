@@ -88,7 +88,7 @@ export class RegisterComponent implements OnInit {
 
   tAndCPop(): void {
     if (this.registerForm.value && this.registerForm.value.tandc == false) {
-      this.registerForm.get('tandc').setValue(false);
+      this.registerForm.get('tandc').setValue(true);
       this._modalService.open("tandc");
     }
   }

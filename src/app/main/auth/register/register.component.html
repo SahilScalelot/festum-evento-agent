@@ -57,12 +57,12 @@
       <span class="text-quicksilver text-xs font-light absolute right-0 top-0">(Optional)</span>
     </div> -->
     <div class="block w-full relative">
-      <label class="inline-flex items-center cursor-pointer" (click)="tAndCPop()">
+      <label class="inline-flex items-center cursor-pointer" >
         <div class="checkbox rounded bg-white">
           <input type="checkbox" [formControlName]="'tandc'" name="tandc" [checked]="false" style="width: 26px !important;height: 26px !important;" />
           <i class="icon-right text-white text-13"></i>
         </div>
-        <span class="input-titel text-sm pl-3 pt-1">By continuing, I agree to the <strong class="text-magicPotion">terms and conditions</strong>.</span>
+        <span class="input-titel text-sm pl-3 pt-1" (click)="tAndCPop()">By continuing, I agree to the <strong class="text-magicPotion">terms and conditions</strong>.</span>
       </label>
       <span class="absolute top-full left-0 text-red-500 text-xs" *ngIf="registerForm.get('tandc')?.invalid && (registerForm.get('tandc')?.dirty && registerForm.get('tandc')?.touched)">
         <span *ngIf="registerForm.get('tandc')?.errors?.['required']">
@@ -82,10 +82,10 @@
     </div>
 
     <div type="button" class="relative py-5">
-      <span class="absolute inset-x-0 top-1/2 -translate-y-1/2 w-full h-[1px] bg-brightGray"></span>
-      <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-max p-2 bg-white">or</span>
+      <!-- <span class="absolute inset-x-0 top-1/2 -translate-y-1/2 w-full h-[1px] bg-brightGray"></span>
+      <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-max p-2 bg-white">or</span> -->
     </div>
-    <div class="flex items-center justify-between">
+    <!-- <div class="flex items-center justify-between">
       <button type="button" class="btn p-3 relative w-[48%] font-bold text-base text-japaneseIndigo border-2 border-[#D3DCEA] rounded">
         <img src="/assets/images/google 1.png" class="absolute top-1/2 left-3.5 -translate-y-1/2" alt="google"/>
         Google
@@ -94,7 +94,7 @@
         <img src="/assets/images/facebook-icon.png" class="absolute top-1/2 left-3.5 -translate-y-1/2 w-4" alt="google"/>
         Facebook
       </button>
-    </div>
+    </div> -->
     <span class="block text-sm text-japaneseIndigo font-bold text-center">Are you new? <a [routerLink]="'/login'">Login</a></span>
   </form>
 </div>
